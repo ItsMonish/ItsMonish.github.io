@@ -1,0 +1,55 @@
+{{ define "title"}}
+{{ .Title }} | {{ .Site.Params.author.name }}
+{{ end }}
+
+{{ define "main" }}
+<div class="postWrapper">
+    <h1>{{ .Title }}</h1>
+    {{ if .Description}}
+    <p>{{.Description}}</p>
+    {{ end }}
+    {{ if .Params.showMetadata | default true }}
+    <section class="postMetadata">
+        <dl>
+            {{ with .GetTerms "tags" }}
+            {{ partial "taxonomy/tags.html" . }}
+            {{ end }}
+            {{ with .GetTerms "authors" }}
+            {{ partial "taxonomy/authors.html" . }}
+            {{ end }}
+            {{ with .GetTerms "categories" }}
+            {{ partial "taxonomy/categories.html" . }}
+            {{ end }}
+            {{ if .Site.Params.published | default true }}
+            <dt>{{ i18n "published" }}</dt>
+            {{ $formattedDate := .Date.Format "2006-01-02" }}
+            <dd><time datetime="{{ $formattedDate }}">{{ .Date | time.Format ":date_long" }}</time></dd>
+            {{ end }}
+            {{ if .Site.Params.readingTime | default true }}
+            <dt>{{ i18n "reading_time" }}</dt>
+            <dd>{{ i18n "reading_time_desc" .ReadingTime }}</dd>
+            {{ end }}
+        </dl>
+    </section>
+    {{ end }}
+    <div>
+        {{ .Content }}
+        <div class="post-nav thin">
+            {{- with .NextInSection }}
+            <a class="next-post" href="{{ .Permalink }}">
+                <span class="post-nav-label">{{- partial "svg.html" (dict "context" . "name" "next") -}}&nbsp;{{- if
+                    fileExists "i18n" -}} {{ i18n "newer" }} {{- else -}} Newer {{- end -}}</span><br><span>{{ .Title
+                    }}</span>
+            </a>
+            {{- end }}
+            {{- with .PrevInSection }}
+            <a class="prev-post" href="{{ .Permalink }}">
+                <span class="post-nav-label">{{- if fileExists "i18n" -}} {{ i18n "older" }} {{- else -}} Older {{- end
+                    -}}&nbsp;{{- partial "svg.html" (dict "context" . "name" "previous") -}}</span><br><span>{{ .Title
+                    }}</span>
+            </a>
+            {{- end }}
+        </div>
+    </div>
+</div>
+{{ end }}

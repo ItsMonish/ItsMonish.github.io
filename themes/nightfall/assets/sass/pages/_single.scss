@@ -1,0 +1,74 @@
+@use "../utils/variables" as v;
+
+.postWrapper {
+    text-align: left;
+    padding: 20px;
+}
+
+.postMetadata {
+    font-family: v.$fontCode;
+    display: block;
+    background: v.$backgroundDarker;
+    padding: 10px;
+}
+
+dt,
+dd {
+    line-height: 1.5;
+}
+
+dl {
+    display: grid;
+    grid-template-columns: max-content auto;
+}
+
+dt {
+    grid-column-start: 1;
+}
+
+dd {
+    grid-column-start: 2;
+}
+
+dt::after {
+    content: ":";
+}
+
+.thin {
+    max-width: 960px;
+}
+
+.post-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5em;
+    margin-bottom: 2.5em;
+    font-size: 1.2em;
+
+    :hover {
+        text-decoration: none;
+        color: #fff;
+        text-shadow: 0 0 1px #fff;
+    }
+
+    a {
+        flex-basis: 50%;
+        flex-grow: 1;
+    }
+
+    .next-post {
+        text-align: left;
+        padding-right: 5px;
+    }
+
+    .prev-post {
+        text-align: right;
+        padding-left: 5px;
+    }
+
+    .post-nav-label {
+        font-size: .8em;
+        opacity: .8;
+        text-transform: uppercase;
+    }
+}

@@ -1,0 +1,37 @@
+[not_found]
+other = "404 NOT FOUND"
+
+[not_found_desc]
+other = "Hmm... That doesn't look right. Perhaps try another link"
+
+[home]
+other = "Home"
+
+[published]
+other = "published"
+
+[reading_time]
+other = "reading time"
+
+[reading_time_desc]
+one = "1 minute"
+other = "{{ .Count }} minutes"
+
+[authors]
+other = "authors"
+
+[tags]
+other = "tags"
+
+[categories]
+other = "categories"
+
+[and]
+other = "and"
+
+[powered_by]
+other = "Built with"
+
+[theme]
+other = "theme"
+
