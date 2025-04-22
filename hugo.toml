@@ -49,7 +49,7 @@ url = "mailto:monishkumar03@protonmail.com"
 aria = "My email"
 
 [params.styles]
-color = "blue"
+color = "red"
 
 [caches]
 [caches.images]
