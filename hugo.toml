@@ -1,0 +1,52 @@
+baseURL = 'https://ItsMonish.github.io/'
+languageCode = 'en-us'
+title = 'My blog'
+
+theme = "nightfall"
+
+[menu]
+[[menu.header]]
+name = "blog"
+weight = 0
+url = "/blog"
+
+[[menu.header]]
+name = "about"
+weight = 0
+url = "/about"
+
+[params]
+user = "ItsMonish"
+published = true
+readingTime = false
+sitedescription = 'My own blog'
+
+[params.author]
+name = "Monish Kumar"
+avatarFirst = true
+avatar = "/avatar.jpg"
+avatarSize = "size-m"
+email = "monishkumar03@protonmail.com"
+
+[[params.social]]
+key = 0
+name = "Github"
+url = "https://github.com/ItsMonish"
+target = "_blank"
+aria = "Github Profile"
+
+[[params.social]]
+key = 1
+name = "LinkedIn"
+url = "https://www.linkedin.com/in/monish-kumar-a-b17119281/"
+target = "_blank"
+aria = "LinkedIn Profile"
+
+[[params.social]]
+key = 2
+name = "Email"
+url = "mailto:monishkumar03@protonmail.com"
+aria = "My email"
+
+[params.styles]
+color = "blue"
