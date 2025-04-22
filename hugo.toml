@@ -50,3 +50,7 @@ aria = "My email"
 
 [params.styles]
 color = "blue"
+
+[caches]
+[caches.images]
+dir = ':cacheDir/images'
