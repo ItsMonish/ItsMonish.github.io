@@ -3,6 +3,8 @@ date = '2025-04-21T22:27:44+05:30'
 title = 'The Bin in the Dump - EchoCTF Writeup'
 categories = ['Writeup']
 tags = ['forensics','challenge-writeup','echoCTF']
+keywords = ['forensics', 'echoctf', 'writeup', 'The Slueth Kit (TSK)', 'debugfs', 'extundelete']
+summary = 'Writeup for an EchoCTF challenge - The bin in the dump'
 +++
 
 ### Introduction:

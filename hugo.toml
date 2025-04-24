@@ -1,6 +1,7 @@
 baseURL = 'https://ItsMonish.github.io/'
 languageCode = 'en-us'
-title = 'My blog'
+enableRobotsTXT = true
+title = "Monish Kumar's Website and Blog"
 
 theme = "nightfall"
 
@@ -19,7 +20,7 @@ url = "/about"
 user = "ItsMonish"
 published = true
 readingTime = false
-sitedescription = 'My own blog'
+sitedescription = "Monish Kumar's Website and blog"
 
 [params.author]
 name = "Monish Kumar"
@@ -54,3 +55,8 @@ color = "red"
 [caches]
 [caches.images]
 dir = ':cacheDir/images'
+
+[sitemap]
+changefreq = "weekly"
+filename = "sitemap.xml"
+priority = 0.5
