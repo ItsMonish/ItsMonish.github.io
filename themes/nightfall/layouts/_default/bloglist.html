@@ -1,0 +1,64 @@
+{{ define "title"}}
+{{ .Title }} | {{ .Site.Params.author.name }}
+{{ end }}
+
+{{ define "main" }}
+
+<div>
+    <div class="listHeader">
+        <h1>{{ .Title }}</h1>
+    </div>
+
+    {{ if .Params.showMetadata | default true }}
+    <section class="postMetadata" style="text-align: left;">
+        <dl>
+            {{ with .GetTerms "tags" }}
+            {{ partial "taxonomy/tags.html" . }}
+            {{ end }}
+            {{ with .GetTerms "authors" }}
+            {{ partial "taxonomy/authors.html" . }}
+            {{ end }}
+            {{ with .GetTerms "categories" }}
+            {{ partial "taxonomy/categories.html" . }}
+            {{ end }}
+            {{ if .Site.Params.published | default true }}
+            <dt>{{ i18n "published" }}</dt>
+            {{ $formattedDate := .Date.Format "2006-01-02" }}
+            <dd><time datetime="{{ $formattedDate }}">{{ .Date | time.Format ":date_long" }}</time></dd>
+            {{ end }}
+            {{ if .Site.Params.readingTime | default true }}
+            <dt>{{ i18n "reading_time" }}</dt>
+            <dd>{{ i18n "reading_time_desc" .ReadingTime }}</dd>
+            {{ end }}
+        </dl>
+    </section>
+    {{ end }}
+    {{ with .Content }}
+    <div class="listContent">
+        {{- . -}}
+    </div>
+    {{ end }}
+
+    <div>
+        {{ range .Pages }}
+
+        <a class="postListLink" href="{{ .Permalink }}">
+            <!-- [html-validate-disable-next prefer-native-element] -->
+            <div class="postListItem" role="listitem">
+                <div class="postHeader">
+                    <span class="postTitle">{{ .Title }}</span>
+                    {{ $formattedDate := .Date.Format "2006-01-02" }}
+                    <time class="postDate" datetime="{{ $formattedDate }}">{{ .Date | time.Format ":date_long" }}</time>
+                </div>
+                <div class="postExcerpt">
+                    <p>{{ .Summary }}</p>
+                </div>
+            </div>
+        </a>
+
+
+        {{end}}
+    </div>
+</div>
+
+{{ end }}
